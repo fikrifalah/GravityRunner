@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// susus amongus
-
 public class PlayerMovement : MonoBehaviour
 {
      [SerializeField] private float speed = 3f;
