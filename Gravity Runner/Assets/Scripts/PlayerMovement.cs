@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour
     private Button jumpButton;
     private CapsuleCollider2D myCharacterCollider2d;
 
-    [SerializeField] private float speed = 3f;
-    [SerializeField] private float acceleration = 0.5f;
+    [SerializeField] private float speed = 6f;
+    [SerializeField] private float acceleration = 1f;
     [SerializeField] private float acceleration_time = 3f;    
-    [SerializeField] private float kecepatan_Maks = 10f;
+    [SerializeField] private float kecepatan_Maks = 20f;
 
     void Awake() 
     {
