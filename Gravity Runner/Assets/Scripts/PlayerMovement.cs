@@ -6,26 +6,27 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D myBody;
-
     private Button jumpButton;
-
+    private CapsuleCollider2D myCharacterCollider2d;
 
     [SerializeField] private float speed = 3f;
     [SerializeField] private float acceleration = 0.5f;
-    [SerializeField] private float acceleration_time = 3f;
+    [SerializeField] private float acceleration_time = 3f;    
 
-    void Awake() {
-        jumpButton = GameObject.Find("Jump Button").GetComponent<Button>();             // Nama tombol buat karakter loncat = Jump Button
+    void Awake() 
+    {
+        // Syarat: Nama tombol buat karakter loncat = Jump Button
+        jumpButton = GameObject.Find("Jump Button").GetComponent<Button>();             
         jumpButton.onClick.AddListener (() => Jump ());
         myBody = GetComponent<Rigidbody2D>();
+        myCharacterCollider2d = GetComponent<CapsuleCollider2D>();
     }
 
-
-    void Start() {
+    void Start() 
+    {
         StartCoroutine(Nambah_Kecepatan());
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 temp = transform.position;
@@ -33,14 +34,22 @@ public class PlayerMovement : MonoBehaviour
         transform.position = temp;
     }
 
-    private void Jump() {
+    private void Jump() 
+    {
+        // Syarat: bikin floor dan ceilling di layer "Platform"
+        if (!myCharacterCollider2d.IsTouchingLayers(LayerMask.GetMask("Platform")))    
+        {
+            return;
+        }
+
         myBody.gravityScale *= -1;
         Vector3 temp = transform.localScale;
         temp.y *= -1;
         transform.localScale = temp;
     }
 
-    IEnumerator Nambah_Kecepatan() {
+    IEnumerator Nambah_Kecepatan() 
+    {
         while (speed < 10f) {
         yield return new WaitForSeconds(acceleration_time);
         speed += acceleration;
