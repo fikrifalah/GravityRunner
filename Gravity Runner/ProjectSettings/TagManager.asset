@@ -45,3 +45,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 4010151959
+    locked: 0
+  - name: Platform
+    uniqueID: 2315950071
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2590208463
+    locked: 0
+  - name: Player
+    uniqueID: 198098381
+    locked: 0
+  - name: Canvas
+    uniqueID: 801609175
+    locked: 0
