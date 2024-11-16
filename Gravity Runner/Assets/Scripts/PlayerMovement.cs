@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 3f;
     [SerializeField] private float acceleration = 0.5f;
     [SerializeField] private float acceleration_time = 3f;    
+    [SerializeField] private float kecepatan_Maks = 10f;
 
     void Awake() 
     {
@@ -50,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Nambah_Kecepatan() 
     {
-        while (speed < 10f) {
+        while (speed < kecepatan_Maks) {
         yield return new WaitForSeconds(acceleration_time);
         speed += acceleration;
         }
