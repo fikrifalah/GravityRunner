@@ -60,3 +60,9 @@ TagManager:
   - name: Canvas
     uniqueID: 801609175
     locked: 0
+  - name: GameOverBG
+    uniqueID: 3291558089
+    locked: 0
+  - name: GameOverComponents
+    uniqueID: 166158549
+    locked: 0
