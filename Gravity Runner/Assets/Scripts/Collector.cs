@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -32,6 +33,11 @@ public class Collector : MonoBehaviour
             Vector3 temp = target.transform.position;
             temp.x += width * 3;
             target.transform.position = temp;
+        }
+
+        if(target.tag == "Obstacle")
+        {
+            target.gameObject.SetActive(false);
         }
     }
 }

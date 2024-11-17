@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D myBody;
     private Button jumpButton;
-    private CapsuleCollider2D myCharacterCollider2d;
+    private PolygonCollider2D myCharacterCollider2d;
 
     [SerializeField] private float speed = 6f;
     [SerializeField] private float acceleration = 1f;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         jumpButton = GameObject.Find("Jump Button").GetComponent<Button>();             
         jumpButton.onClick.AddListener (() => Jump ());
         myBody = GetComponent<Rigidbody2D>();
-        myCharacterCollider2d = GetComponent<CapsuleCollider2D>();
+        myCharacterCollider2d = GetComponent<PolygonCollider2D>();
     }
 
     void Start() 
