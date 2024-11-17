@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour
-{
+{   
+    public bool playerHasDied = false;
     void Awake()
     {
 
@@ -23,13 +24,8 @@ public class PlayerDeath : MonoBehaviour
         {
             transform.position = new Vector3(0, 1000, 0);
             target.gameObject.SetActive(false);
-            StartCoroutine(RestartGame());
+            playerHasDied = true;
         }
     }
 
-    IEnumerator RestartGame()
-    {
-        yield return new WaitForSecondsRealtime (2f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }
